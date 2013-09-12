@@ -1,0 +1,21 @@
+{
+  "name": "d3choropleth",
+  "version": "0.0.1",
+  "authors": [
+    "Ryan <ryan.txanson@gmail.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "~1.5.2",
+    "topojson": "~1.4.0",
+    "d3": "~3.3.3",
+    "queue-async": "mbostock/queue#~1.0.4",
+    "jquery": "2.0.3"
+  }
+}

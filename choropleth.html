@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+
+<head>
+    <style>
+    .counties 
+      fill: none;
+    }
+
+    .states {
+      fill: none;
+      stroke: #fff;
+      stroke-linejoin: round;
+    }
+
+    .q0-9 { fill:rgb(247,251,255); }
+    .q1-9 { fill:rgb(222,235,247); }
+    .q2-9 { fill:rgb(198,219,239); }
+    .q3-9 { fill:rgb(158,202,225); }
+    .q4-9 { fill:rgb(107,174,214); }
+    .q5-9 { fill:rgb(66,146,198);  }
+    .q6-9 { fill:rgb(33,113,181);  }
+    .q7-9 { fill:rgb(8,81,156);    }
+    .q8-9 { fill:rgb(8,48,107);    }
+
+    .place-label { size: 160%; }
+    .count-label { size: 90%; margin-top: 20px; padding-top: 20px; top: 20px; position: relative; }
+
+    .count-label.q0-9, .place-label.q0-9 { fill:rgb(8,48,107);    }
+    .count-label.q1-9, .place-label.q1-9 { fill:rgb(8,48,107);    }
+    .count-label.q2-9, .place-label.q2-9 { fill:rgb(8,48,107);    }
+    .count-label.q3-9, .place-label.q3-9 { fill:rgb(8,48,107);    }
+    .count-label.q4-9, .place-label.q4-9 { fill:rgb(8,48,107);    }
+    .count-label.q5-9, .place-label.q5-9 { fill:rgb(8,48,107);    }
+    .count-label.q6-9, .place-label.q6-9 { fill:rgb(198,219,239); }
+    .count-label.q7-9, .place-label.q7-9 { fill:rgb(222,235,247); }
+    .count-label.q8-9, .place-label.q8-9 { fill:rgb(247,251,255); }
+
+    .neighborhood { stroke: #333; }
+    .neighborhood-border { stroke: rgba(30,30,30,.5) ; fill: rgba(0,0,0,0); }
+    .precinct { stroke: #333; }
+    .lake { fill:rgba(50,90,255,.95); }
+    .blank { fill: rgba(255,5,5,.5); }
+    .hidden { display: none; }
+
+    text {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 8pt;
+        pointer-events: none;
+    }
+
+    #precincts text {
+        font-size: 10pt;
+    }
+
+    .q7-9 { fill:rgb(8,81,156); }
+
+    .dl-horizontal {
+        float: left ; 
+    }
+
+    #precincts_key {
+        overflow: scroll;
+        height: 400px;
+    }
+
+    </style>
+
+    <!-- Lots of dependencies... -->
+
+    <script src="/bower_components/jquery/jquery.min.js"></script>
+    <script src="/bower_components/underscore/underscore-min.js"></script>
+    <script src="/bower_components/d3/d3.min.js"></script>
+    <script src="/bower_components/queue-async/queue.min.js"></script>
+    <script src="/bower_components/topojson/topojson.js"></script>
+
+    <!-- Here's what you need -->
+    <script src="/build/choropleth.js"></script>
+
+    <!--
+    <script src="http://localhost:9001/ws"></script>
+    -->
+
+    <script>
+        // I'll document this more eventually.
+
+        $(document).ready(function(){
+            $("#svg_goes_here").d3choropleth({
+              height: 600,
+              width: 450,
+
+              boundary_json: "/json/neighborhoods_and_shadings.topo.json",
+              boundary_path: "neighborhoods.geo",
+              boundary_label_property: "rate",
+              boundary_class_name: "neighborhood",
+              boundary_label_class_name: "place-label",
+              boundary_id_field: "NAMEUPPER",
+
+              boundary_shading_attribute: "rate",
+              quantization_min: 70,
+              quantization_max: 300,
+
+              additional_data: [
+                // { datum_name: "lakes"
+                // , datum_element_container: "lakes"
+                // , datum_class_name: "lake"
+                // , datum_path: "water.geo"
+                // }
+              ],
+            });
+        });
+    </script>
+
+<body>
+    <div id="svg_goes_here">
+    </div>
+
+</body>
+</html>
