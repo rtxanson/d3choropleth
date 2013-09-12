@@ -23,3 +23,10 @@ you encounter some more problems, open an issue!
  * The sample provided here includes random data for Minneapolis neighborhoods,
    as well as a link to the shapefiles.
 
+## Testing
+
+To test with the sample data, `make` should be sufficient. Then try running an
+HTTP server (`python -m SimpleHTTPServer`) and browse to the file. If you don't
+see anything, check the output of `make`, or inspect the error console. There
+*could* be browser-specific issues that I haven't worked out yet. If so, drop
+me a line.
