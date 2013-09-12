@@ -18,6 +18,13 @@ you encounter some more problems, open an issue!
  * Load from TSV, or from a field in the topojson files.
  * Maybe more, which I'll document when the time comes...
 
+## Caveats
+
+ * This is pretty specific to the projection I'm working with, but maybe I'll
+   fix that.
+ * No auto-resize events for responsive stuff
+ * Probably more... ;)
+
 ## Included Sample
 
  * The sample provided here includes random data for Minneapolis neighborhoods,
